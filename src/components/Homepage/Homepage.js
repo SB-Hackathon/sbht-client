@@ -7,11 +7,13 @@ import SearchBar from './SearchBar'
 const Homepage = () => {
   return (
     <Container>
-      <Row>
+      <Row style={{
+        margin: 'auto'
+      }}>
         <SearchBar />
       </Row>
       <Row style={{
-        margin: 'auto'
+        marginTop: '50px'
       }}>
         <Flag />
         <Flag />
