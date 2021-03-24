@@ -1,15 +1,25 @@
 import React from 'react'
+// import apiUrl from '../../apiConfig'
 
 const RedeemBtn = () => {
-  const onSubmit = () => {
-    fetch('url', {
-      method: 'POST'
-    })
-      .then((res) => res.json())
-  }
+  // const [points, setPoints] = useState('')
+
+  // const onSubmit = () => {
+  //   fetch(apiUrl, {
+  //     method: 'POST',
+  //     headers:{
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify(points)
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setPoints(data)
+  //     })
+  // }
 
   return (
-    <form onSubmit={onSubmit} >
+    <form>
       <button type='submit'
         style={{
           borderRadius: '10px'
