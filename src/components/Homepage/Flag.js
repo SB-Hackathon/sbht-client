@@ -18,14 +18,14 @@ const Flag = () => {
             width: '25%',
             height: '70px',
             border: '1px solid black'
-          }}>Thumbnail</div>
+          }}>Thumbnail goes here</div>
         <div
           style={{
             width: '70%',
             height: '70px',
             border: '1px solid black',
             marginBottom: '1em'
-          }}>Flag Details</div>
+          }}>Flag Details goes here</div>
       </div>
     </Container>
   )

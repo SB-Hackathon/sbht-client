@@ -3,28 +3,30 @@ import { Form } from 'react-bootstrap'
 
 const Filters = () => {
   return (
-    <div>
-      <Form>
-        <div className='mb-3'>
-          <Form.Check
-            type='checkbox'
-            label='Museums'
-          />
-          <Form.Check
-            type='checkbox'
-            label='Category'
-          />
-          <Form.Check
-            type='checkbox'
-            label='Category'
-          />
-          <Form.Check
-            type='checkbox'
-            label='Category'
-          />
-        </div>
-      </Form>
-    </div>
+    <Form>
+      <div className='mb-3'
+        style={{
+          margin: '0 10px'
+        }}
+      >
+        <Form.Check
+          type='checkbox'
+          label='Lodging'
+        />
+        <Form.Check
+          type='checkbox'
+          label='Tourism offices'
+        />
+        <Form.Check
+          type='checkbox'
+          label='Event management'
+        />
+        <Form.Check
+          type='checkbox'
+          label='Adventure &amp; Recreation'
+        />
+      </div>
+    </Form>
   )
 }
 

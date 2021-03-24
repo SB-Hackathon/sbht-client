@@ -9,12 +9,21 @@ const SearchBar = () => {
     <Container style={{
       border: '1px solid black',
       width: '90vw',
-      height: '410px',
-      margin: 'auto'
+      height: '100vw'
     }}>
-      <Row style={{ marginBottom: '30px' }}>
-        <Col>
-          <input type="text" placeholder='Search' />
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row'
+        }}
+      >
+        <Col style={{ margin: 'auto' }}>
+          <input type="text" placeholder='Search'
+            style={{
+              height: '40px',
+              width: '50vw'
+            }}
+          />
         </Col>
         <Col>
           <GoSettings
@@ -24,16 +33,16 @@ const SearchBar = () => {
             data-toggle='dropdown'
             aria-haspopup='true'
             aria-expanded='false'
-            size={50}
+            size={60}
             style={{
               color: 'black',
               transform: 'rotate(-90deg)'
             }} />
           <div className="dropdown-menu drop-custom-css" aria-labelledby="dropdownMenuButton">
-            <Filters />
+            <Filters/>
           </div>
         </Col>
-      </Row>
+      </div>
       <Row>
         <MapContainer />
       </Row>
