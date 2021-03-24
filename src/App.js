@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -9,6 +9,9 @@ import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
+import Homepage from './components/Homepage/Homepage'
+
+import './App.css'
 
 class App extends Component {
   constructor (props) {
@@ -40,7 +43,7 @@ class App extends Component {
     const { msgAlerts, user } = this.state
 
     return (
-      <Fragment>
+      <div className='App'>
         <Header user={user} />
         {msgAlerts.map(msgAlert => (
           <AutoDismissAlert
@@ -65,8 +68,14 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
+          {/* <AuthenticatedRoute user={user} path='/home' render={() => (
+            <Homepage user={user} />
+          )} /> */}
+          <Route path='/home' render={() => (
+            <Homepage />
+          )} />
         </main>
-      </Fragment>
+      </div>
     )
   }
 }
