@@ -14,7 +14,13 @@ class SignUp extends Component {
     this.state = {
       email: '',
       password: '',
-      passwordConfirmation: ''
+      passwordConfirmation: '',
+      firstName: '',
+      lastName: '',
+      zip: '',
+      dateOfBirth: '',
+      race: '',
+      gender: ''
     }
   }
 
@@ -37,7 +43,7 @@ class SignUp extends Component {
       }))
       .then(() => history.push('/'))
       .catch(error => {
-        this.setState({ email: '', password: '', passwordConfirmation: '' })
+        this.setState({ email: '', password: '', passwordConfirmation: '', firstName: '', lastName: '', zip: '', dateOfBirth: '', race: '', gender: '' })
         msgAlert({
           heading: 'Sign Up Failed with error: ' + error.message,
           message: messages.signUpFailure,
@@ -47,7 +53,7 @@ class SignUp extends Component {
   }
 
   render () {
-    const { email, password, passwordConfirmation } = this.state
+    const { email, password, passwordConfirmation, firstName, lastName, zip, dateOfBirth, race, gender } = this.state
 
     return (
       <div className="row">
@@ -87,6 +93,68 @@ class SignUp extends Component {
                 onChange={this.handleChange}
               />
             </Form.Group>
+            <Form.Group controlId="firstName">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                required
+                name="firstName"
+                value={firstName}
+                type="firstName"
+                placeholder="First Name"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="lastName">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                required
+                name="lastName"
+                value={lastName}
+                type="lastName"
+                placeholder="Last Name"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="zip">
+              <Form.Label>Zip Code</Form.Label>
+              <Form.Control
+                required
+                name="zip"
+                value={zip}
+                type="zip"
+                placeholder="Zip Code"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="dateOfBirth">
+              <Form.Label>Date of Birth</Form.Label>
+              <Form.Control
+                required
+                name="dateOfBirth"
+                value={dateOfBirth}
+                type="dateOfBirth"
+                placeholder="Date of Birth"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <label>Race</label>
+            <select required placeholder='Race' name='race' value={race} onChange={this.handleChange}>
+              <option disabled={true} value="" className='placeholderValue'>Choose race</option>
+              <option value='Placeholder1'>Placeholder 1</option>
+              <option value='Placeholder2'>Placeholder 2</option>
+              <option value='Placeholder3'>Placeholder 3</option>
+              <option value='Placeholder4'>Placeholder 4</option>
+              <option value='Placeholder5'>Placeholder 5</option>
+            </select>
+            <label>Gender</label>
+            <select required placeholder='Gender' name='gender' value={gender} onChange={this.handleChange}>
+              <option disabled={true} value="" className='placeholderValue'>Choose gender</option>
+              <option value='Option1'>Option 1</option>
+              <option value='Option2'>Option 2</option>
+              <option value='Option3'>Option 3</option>
+              <option value='Option4'>Option 4</option>
+              <option value='Option5'>Option 5</option>
+            </select>
             <Button
               variant="primary"
               type="submit"
