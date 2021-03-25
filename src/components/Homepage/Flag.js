@@ -1,20 +1,24 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Flag = (props) => {
   return (
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        width: '90vw',
-        height: '30vw',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: '10px auto',
-        border: '1px solid black',
-        borderRadius: '5px',
-        backgroundColor: 'white'
-      }}
+    <Link to={{
+      pathname: `/${props.biz.id}`,
+      state: { data: true }
+    }}
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      width: '90vw',
+      height: '30vw',
+      justifyContent: 'center',
+      alignItems: 'center',
+      margin: '10px auto',
+      border: '1px solid black',
+      borderRadius: '5px',
+      backgroundColor: 'white'
+    }}
     >
       <div>
         <h6
@@ -48,7 +52,7 @@ const Flag = (props) => {
           >{props.biz.address}</div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
