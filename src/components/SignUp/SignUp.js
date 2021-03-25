@@ -14,7 +14,13 @@ class SignUp extends Component {
     this.state = {
       email: '',
       password: '',
-      passwordConfirmation: ''
+      passwordConfirmation: '',
+      firstName: '',
+      lastName: '',
+      zip: '',
+      dateOfBirth: '',
+      race: '',
+      gender: ''
     }
   }
 
@@ -47,7 +53,8 @@ class SignUp extends Component {
   }
 
   render () {
-    const { email, password, passwordConfirmation } = this.state
+    const { email, password, passwordConfirmation, firstName, lastName, zip,
+      dateOfBirth, race, gender } = this.state
 
     return (
       <div className="row">
@@ -86,6 +93,79 @@ class SignUp extends Component {
                 placeholder="Confirm Password"
                 onChange={this.handleChange}
               />
+            </Form.Group>
+            <Form.Group controlId="firstName">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                required
+                name="firstName"
+                value={firstName}
+                type="text"
+                placeholder="First Name"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="lastName">
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                required
+                name="lastName"
+                value={lastName}
+                type="text"
+                placeholder="Last Name"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="zip">
+              <Form.Label>Zip</Form.Label>
+              <Form.Control
+                required
+                name="zip"
+                value={zip}
+                type="text"
+                placeholder="zip code"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="dateOfBirth">
+              <Form.Label>Date of Birth</Form.Label>
+              <Form.Control
+                required
+                name="dateOfBirth"
+                value={dateOfBirth}
+                type="date"
+                placeholder="date of birth"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Form.Group controlId="race">
+              <Form.Label>Race/Ethnicity</Form.Label>
+              <Form.Control
+                onChange={this.handleChange}
+                as="select" placeholder="select" value={race} name="race">
+                <option value="">select</option>
+                <option value="American Indian">American Indian or Alaska Native</option>
+                <option value="Asian">Asian</option>
+                <option value="Black or African American">Black or African American</option>
+                <option value="Native Hawaiian">Native Hawaiian</option>
+                <option value="Other Pacific Islander">Other Pacific Islander</option>
+                <option value="White">White</option>
+                <option value="I prefer not to say">I prefer not to say</option>
+              </Form.Control>
+            </Form.Group>
+            <Form.Group controlId="gender">
+              <Form.Label>Gender</Form.Label>
+              <Form.Control
+                onChange={this.handleChange}
+                as="select" placeholder="select" value={gender} name="gender">
+                <option value="">select</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Non-binary">Non-binary</option>
+                <option value="Transgender">Transgender</option>
+                <option value="Intersex">Intersex</option>
+                <option value="I prefer not to say">I prefer not to say</option>
+              </Form.Control>
             </Form.Group>
             <Button
               variant="primary"

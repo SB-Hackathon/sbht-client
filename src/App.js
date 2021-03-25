@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Homepage from './components/Homepage/Homepage'
+import CheckoutPage from './components/CheckoutPage/CheckoutPage'
 
 import './App.css'
 
@@ -67,6 +68,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/check-out' render={() => (
+            <CheckoutPage msgAlert={this.msgAlert} user={user} />
           )} />
           {/* <AuthenticatedRoute user={user} path='/home' render={() => (
             <Homepage user={user} />
