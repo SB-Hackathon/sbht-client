@@ -9,7 +9,13 @@ export const signUp = credentials => {
       credentials: {
         email: credentials.email,
         password: credentials.password,
-        password_confirmation: credentials.passwordConfirmation
+        password_confirmation: credentials.passwordConfirmation,
+        firstName: credentials.firstName,
+        lastName: credentials.lastName,
+        zip: credentials.zip,
+        dateOfBirth: credentials.dateOfBirth,
+        race: credentials.race,
+        gender: credentials.gender
       }
     }
   })
