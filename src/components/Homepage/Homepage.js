@@ -1,25 +1,21 @@
 import React from 'react'
 import Flag from './Flag'
 
-import { Container, Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import SearchBar from './SearchBar'
 
 const Homepage = () => {
   return (
-    <Container>
+    <div style={{ position: 'relative' }}>
       <Row style={{
         margin: 'auto'
       }}>
         <SearchBar />
       </Row>
-      <Row style={{
-        marginTop: '50px'
-      }}>
+      <div>
         <Flag />
-        <Flag />
-        <Flag />
-      </Row>
-    </Container>
+      </div>
+    </div>
   )
 }
 
