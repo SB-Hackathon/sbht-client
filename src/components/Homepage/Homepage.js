@@ -1,5 +1,6 @@
 import React from 'react'
 import Flag from './Flag'
+import bizData from '../../data/bizData'
 
 import { Row } from 'react-bootstrap'
 import SearchBar from './SearchBar'
@@ -13,7 +14,9 @@ const Homepage = () => {
         <SearchBar />
       </Row>
       <div>
-        <Flag />
+        {bizData.map((biz) => (
+          <Flag biz={biz} key={biz.id} />
+        ))}
       </div>
     </div>
   )

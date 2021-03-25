@@ -1,6 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const ZipReq = () => {
+  const [zipcode, setZipcode] = useState('')
+
+  const handleSubmit = (e) => {
+    setZipcode(e.target.value)
+      .then(() => history.push('/home'))
+  }
+
   return (
     <div
       style={{
@@ -10,7 +17,7 @@ const ZipReq = () => {
       }}
     >
       <h3>Type in your zipcode to find live flags in your area!</h3>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div
           style={{
             display: 'flex',
@@ -18,7 +25,7 @@ const ZipReq = () => {
             margin: 'auto'
           }}
         >
-          <input type="text" placeholder='e.g. 90210'
+          <input type="text" placeholder='e.g. 90210' value={zipcode}
             style={{
               width: '40vw',
               height: '9vw',
