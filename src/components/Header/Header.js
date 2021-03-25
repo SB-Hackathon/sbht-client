@@ -28,7 +28,8 @@ const Header = ({ user }) => (
   <Navbar bg="none" variant="light" expand="md">
     <Navbar.Brand href="#">
       <img src={logo} style={{
-        width: '70px'
+        width: '100px',
+        margin: '-30px 0 -20px 0'
       }} />
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />

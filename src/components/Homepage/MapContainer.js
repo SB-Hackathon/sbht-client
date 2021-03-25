@@ -7,8 +7,8 @@ const MapContainer = (props) => {
       <Map
         google={props.google}
         style={{
-          width: '90vw',
-          height: '350px'
+          width: '89vw',
+          height: '360px'
         }}
         containerStyle={{
           position: 'relative',
