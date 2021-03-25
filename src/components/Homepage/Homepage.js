@@ -15,7 +15,7 @@ const Homepage = () => {
       </Row>
       <div>
         {bizData.map((biz) => (
-          <Flag biz={biz} key={biz.id} />
+          <Flag biz={biz} key={biz.ID} />
         ))}
       </div>
     </div>

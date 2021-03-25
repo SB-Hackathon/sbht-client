@@ -22,9 +22,13 @@ const RedeemBtn = () => {
     <form>
       <button type='submit'
         style={{
-          borderRadius: '10px'
+          borderRadius: '5px',
+          backgroundImage: 'linear-gradient(170deg, white, white, yellow',
+          width: '200px',
+          height: '40px',
+          fontSize: '14px'
         }}
-      >Redeem Offer</button>
+      ><strong>Capture this offer NOW!</strong></button>
     </form>
   )
 }

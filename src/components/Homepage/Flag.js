@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 const Flag = (props) => {
   return (
     <Link to={{
-      pathname: `/${props.biz.id}`,
-      state: { data: true }
+      pathname: `/${props.biz.ID}`,
+      state: { biz: props.biz }
     }}
     style={{
       display: 'flex',
