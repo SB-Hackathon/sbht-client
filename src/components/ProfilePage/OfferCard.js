@@ -1,11 +1,28 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { withRouter, useLocation } from 'react-router-dom'
 import { Card, Row } from 'react-bootstrap'
 import { BiTrophy } from 'react-icons/bi'
 import { IoLocationOutline } from 'react-icons/io5'
 import { CgDollar } from 'react-icons/cg'
 import RedeemBtn from './RedeemBtn'
+import bizData from '../../data/bizData'
 
-const OfferCard = () => {
+const OfferCard = (props) => {
+  const location = useLocation()
+  const [biz, setBiz] = useState('')
+
+  useEffect(() => {
+    bizData.map((sBiz) => {
+      if (props.match.params.id === sBiz.ID) {
+        setBiz(sBiz)
+      } else {
+        setBiz('')
+      }
+    })
+  }, [props.match.params.id])
+
+  console.log(location)
+  console.log(biz)
   return (
     <Card
       style={{
@@ -14,8 +31,7 @@ const OfferCard = () => {
         alignItems: 'center'
       }}
     >
-      {/* This should be dynamic */}
-      <h2>Alberts Museum</h2>
+      <h2>blabla</h2>
       <Card
         style={{
           margin: 'auto',
@@ -73,4 +89,4 @@ const OfferCard = () => {
   )
 }
 
-export default OfferCard
+export default withRouter(OfferCard)

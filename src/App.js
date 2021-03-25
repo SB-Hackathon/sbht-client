@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
-import { Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
@@ -13,6 +17,7 @@ import Homepage from './components/Homepage/Homepage'
 
 import CheckoutPage from './components/CheckoutPage/CheckoutPage'
 import ZipReq from './components/ZipRequest/ZipReq'
+import OfferCard from './components/ProfilePage/OfferCard'
 
 import './App.css'
 
@@ -46,45 +51,52 @@ class App extends Component {
     const { msgAlerts, user } = this.state
 
     return (
-      <div className='App'>
-        <Header user={user} />
-        {msgAlerts.map(msgAlert => (
-          <AutoDismissAlert
-            key={msgAlert.id}
-            heading={msgAlert.heading}
-            variant={msgAlert.variant}
-            message={msgAlert.message}
-            id={msgAlert.id}
-            deleteAlert={this.deleteAlert}
-          />
-        ))}
-        <main className="container">
-          <Route path='/sign-up' render={() => (
-            <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <Route path='/sign-in' render={() => (
-            <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
-          )} />
-          <AuthenticatedRoute user={user} path='/sign-out' render={() => (
-            <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/change-password' render={() => (
-            <ChangePassword msgAlert={this.msgAlert} user={user} />
-          )} />
-          <AuthenticatedRoute user={user} path='/check-out' render={() => (
-            <CheckoutPage msgAlert={this.msgAlert} user={user} />
-          )} />
-          {/* <AuthenticatedRoute user={user} path='/home' render={() => (
-            <Homepage user={user} />
-          )} /> */}
-          <Route path='/home' render={() => (
-            <Homepage />
-          )} />
-          <Route path='/zipcode' render={() => (
-            <ZipReq />
-          )} />
-        </main>
-      </div>
+      <Router>
+        <div className='App'>
+          <Header user={user} />
+          {msgAlerts.map(msgAlert => (
+            <AutoDismissAlert
+              key={msgAlert.id}
+              heading={msgAlert.heading}
+              variant={msgAlert.variant}
+              message={msgAlert.message}
+              id={msgAlert.id}
+              deleteAlert={this.deleteAlert}
+            />
+          ))}
+          <main className="container">
+            <Switch>
+              <Route path='/sign-up' render={() => (
+                <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
+              )} />
+              <Route path='/sign-in' render={() => (
+                <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+              )} />
+              <AuthenticatedRoute user={user} path='/sign-out' render={() => (
+                <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
+              )} />
+              <AuthenticatedRoute user={user} path='/change-password' render={() => (
+                <ChangePassword msgAlert={this.msgAlert} user={user} />
+              )} />
+              <AuthenticatedRoute user={user} path='/check-out' render={() => (
+                <CheckoutPage msgAlert={this.msgAlert} user={user} />
+              )} />
+              {/* <AuthenticatedRoute user={user} path='/home' render={() => (
+                <Homepage user={user} />
+              )} /> */}
+              <Route path='/home' render={() => (
+                <Homepage />
+              )} />
+              <Route path='/zipcode' render={() => (
+                <ZipReq />
+              )} />
+              <Route path='/:id' render={(props) => (
+                <OfferCard />
+              )} />
+            </Switch>
+          </main>
+        </div>
+      </Router>
     )
   }
 }
