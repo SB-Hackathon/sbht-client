@@ -1,49 +1,35 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { withRouter, useLocation } from 'react-router-dom'
 import { Card, Row } from 'react-bootstrap'
-import { BiTrophy } from 'react-icons/bi'
-import { IoLocationOutline } from 'react-icons/io5'
-import { CgDollar } from 'react-icons/cg'
+import { FaTrophy } from 'react-icons/fa'
+import { BsGeoAlt } from 'react-icons/bs'
+import { HiCurrencyDollar } from 'react-icons/hi'
+import { FcGlobe, FcPhone } from 'react-icons/fc'
 import RedeemBtn from './RedeemBtn'
-import bizData from '../../data/bizData'
 
-const OfferCard = (props) => {
+const OfferCard = () => {
   const location = useLocation()
-  const [biz, setBiz] = useState('')
-
-  useEffect(() => {
-    bizData.map((sBiz) => {
-      if (props.match.params.id === sBiz.ID) {
-        setBiz(sBiz)
-      } else {
-        setBiz('')
-      }
-    })
-  }, [props.match.params.id])
 
   console.log(location)
-  console.log(biz)
   return (
     <Card
       style={{
+        position: 'relative',
         margin: 'auto',
         width: '90vw',
         alignItems: 'center'
       }}
     >
-      <h2>blabla</h2>
-      <Card
-        style={{
-          margin: 'auto',
-          position: 'relative',
-          width: '50%',
-          height: '20vw',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <h4>OFFER</h4>
-      </Card>
+      <h2>{location.state.biz.name}</h2>
+      <div>
+        <img src={location.state.biz.image} alt=""
+          style={{
+            width: '150px',
+            height: '150px',
+            borderRadius: '100px'
+          }}
+        />
+      </div>
       <div
         style={{
           display: 'flex',
@@ -55,26 +41,42 @@ const OfferCard = (props) => {
       >
         <Row>
           <div style={{ marginRight: '10px' }}>
-            <BiTrophy size={20} />
+            <FaTrophy size={20} style={{ color: 'gold' }} />
           </div>
           <div>
-            <h6 style={{ overflow: 'nowrap' }} >Points Offered</h6>
+            <h6 style={{ overflow: 'nowrap' }} ><strong>Visit today to earn 50 Points!</strong></h6>
           </div>
         </Row>
         <Row>
           <div style={{ marginRight: '10px' }}>
-            <IoLocationOutline size={20} />
+            <FcGlobe size={20} />
           </div>
           <div>
-            <h6>Location</h6>
+            <h6>{location.state.biz.website}</h6>
           </div>
         </Row>
         <Row>
           <div style={{ marginRight: '10px' }}>
-            <CgDollar size={20} />
+            <BsGeoAlt size={20} style={{ color: 'red' }} />
           </div>
           <div>
-            <h6>Price</h6>
+            <h6>{location.state.biz.address}</h6>
+          </div>
+        </Row>
+        <Row>
+          <div style={{ marginRight: '10px' }}>
+            <FcPhone size={20} />
+          </div>
+          <div>
+            <h6>{location.state.biz.phone}</h6>
+          </div>
+        </Row>
+        <Row>
+          <div style={{ marginRight: '10px' }}>
+            <HiCurrencyDollar size={20} style={{ color: 'gold' }} />
+          </div>
+          <div>
+            <h6>All tickets are 20% off 12pm to 2pm</h6>
           </div>
         </Row>
       </div>
