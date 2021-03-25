@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Homepage from './components/Homepage/Homepage'
+import ZipReq from './components/ZipRequest/ZipReq'
 
 import './App.css'
 
@@ -73,6 +74,9 @@ class App extends Component {
           )} /> */}
           <Route path='/home' render={() => (
             <Homepage />
+          )} />
+          <Route path='/zipcode' render={() => (
+            <ZipReq />
           )} />
         </main>
       </div>
