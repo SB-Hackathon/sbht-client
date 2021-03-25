@@ -1,5 +1,6 @@
 import React from 'react'
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
+import bizData from '../../data/bizData'
 
 const MapContainer = (props) => {
   return (
@@ -15,13 +16,20 @@ const MapContainer = (props) => {
           width: '100%',
           height: '100%'
         }}
-        zoom={11}
+        zoom={14}
         initialCenter={{
           lat: 38.820450,
           lng: -77.050552
         }}
       >
-        <Marker />
+        {bizData.map((biz) => (
+          <Marker key={biz.id}
+            position={{
+              lat: biz.lat,
+              lng: biz.lon
+            }}
+          />
+        ))}
       </Map>
     </div>
   )

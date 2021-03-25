@@ -4,7 +4,7 @@ import { GoSettings } from 'react-icons/go'
 import Filters from './Filters'
 import MapContainer from './MapContainer'
 
-const SearchBar = () => {
+const SearchBar = (props) => {
   const [show, setShow] = useState(false)
 
   const handleClose = () => setShow(false)
@@ -14,7 +14,8 @@ const SearchBar = () => {
     <Container style={{
       border: '2px solid black',
       width: '90vw',
-      height: '425px'
+      height: '425px',
+      backgroundColor: 'white'
     }}>
       <div
         style={{
