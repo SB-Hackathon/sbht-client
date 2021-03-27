@@ -5,28 +5,28 @@ import logo from '../../asset/logo.png'
 
 const authenticatedOptions = (
   <Fragment>
-    <Nav.Link href="/change-password">Change Password</Nav.Link>
-    <Nav.Link href="/sign-out">Sign Out</Nav.Link>
-    <Nav.Link href="/check-out">Checkout</Nav.Link>
+    <Nav.Link href="#change-password">Change Password</Nav.Link>
+    <Nav.Link href="#sign-out">Sign Out</Nav.Link>
+    <Nav.Link href="#check-out">Checkout</Nav.Link>
   </Fragment>
 )
 
 const unauthenticatedOptions = (
   <Fragment>
-    <Nav.Link href="/sign-up">Sign Up</Nav.Link>
-    <Nav.Link href="/sign-in">Sign In</Nav.Link>
+    <Nav.Link href="#sign-up">Sign Up</Nav.Link>
+    <Nav.Link href="#sign-in">Sign In</Nav.Link>
   </Fragment>
 )
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link href="/home">Home</Nav.Link>
+    <Nav.Link href="#home">Home</Nav.Link>
   </Fragment>
 )
 
 const Header = ({ user }) => (
   <Navbar bg="none" variant="light" expand="md">
-    <Navbar.Brand href="/home">
+    <Navbar.Brand href="#home">
       <img src={logo} style={{
         width: '100px',
         margin: '-30px 0 -20px 0'
